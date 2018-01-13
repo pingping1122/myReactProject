@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="example"></div>
+<script src="libs/react.min.js"></script>
+<script src="libs/react-dom.min.js"></script>
+<script src="libs/babel.min.js"></script>
+<script type="text/babel">
+    var StateAndPropsComponent = React.createClass({
+        getInitialState: function () {
+            return {name: '李四', age: 20}
+        },
+        render: function () {
+            return (<div>
+                <Name name={this.state.name} />
+                <Age age={this.state.age} />
+            </div>)
+
+        }
+    });
+    var Name = React.createClass( {
+        render: function () {
+            return (<p>{this.props.name}</p>);
+        }
+    });
+    var Age =  React.createClass({
+        render: function () {
+            return (<p>{this.props.age}</p>);
+        }
+    });
+    ReactDOM.render(
+            <StateAndPropsComponent/>, document.getElementById('example')
+    )
+
+</script>
+</body>
+</html>

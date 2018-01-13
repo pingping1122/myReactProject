@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>propTypes输入验证</title>
+</head>
+<body>
+<div id="example"></div>
+<script src="libs/react.min.js"></script>
+<script src="libs/react-dom.min.js"></script>
+<script src="libs/babel.min.js"></script>
+<script type="text/babel">
+     var name; //
+    // var name = 123;
+    var UserName = React.createClass({
+        propTypes: {
+            title: React.PropTypes.number.isRequired,
+        },
+        render: function () {
+            return (<h1> {this.props.title} </h1>);
+        }
+
+    });
+    ReactDOM.render(
+            <UserName title={name} />,
+        document.getElementById('example')
+    );
+</script>
+</body>
+</html>

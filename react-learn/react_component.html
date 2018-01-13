@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React组件</title>
+</head>
+<body>
+<div id="example"></div>
+<script src="libs/react.min.js"></script>
+<script src="libs/react-dom.min.js"></script>
+<script src="libs/babel.min.js"></script>
+<script type="text/babel">
+    /*1-React.createClass方法用于生成一个组件类HelloMessage*/
+    var HelloMessage = React.createClass({
+        render: function () {
+            return <h1>react组件输入hello world--{this.props.name}</h1>
+        }
+    });
+    /*2-<HelloMessage/> 实例组件类并输出信息--react自定义组件类必须以大写字母开头*/
+    /*3-this.props向组件传递参数*/
+    ReactDOM.render(<HelloMessage name="来自菜鸟教程(this.props传参)"/>, document.getElementById('example'));
+
+</script>
+</body>
+</html>

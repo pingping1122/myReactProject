@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello React!</title>
+    <style>
+        .foo {
+            width: 50px;
+            height: 50px;
+            background-color: #f00
+        }
+    </style>
+</head>
+<body>
+<div id="example"></div>
+<script src="libs/react.min.js"></script>
+<script src="libs/react-dom.min.js"></script>
+<script src="libs/babel.min.js"></script>
+<script type="text/babel">
+    // 将一个 h1 标题，插入 id="example" 节点中
+    var i = 0,
+        myStyle = {
+            fontSize: 100,
+            color: '#f00'
+        },
+        arr = [
+            <p>测试jsx中插入数组是否会自动展开-001</p>,
+            <span>测试jsx中插入数组是否会自动展开-002</span>
+        ],
+        myDivElement = <div className="foo">测试react渲染html元素</div>,
+
+        MyComponent = React.createClass({
+                /*react组件*/
+                render:function(){
+                    return <h1>测试react渲染组件</h1>
+                }
+            }
+        ),
+        myElement = <MyComponent/>
+    ;
+    /*ReactDOM.render(myElement, document.getElementById('example'));*/
+    /*ReactDOM.render(myDivElement, document.getElementById('example'));*/
+
+     ReactDOM.render(
+         /*标签外的注释不需要写在花括号内*/
+             <div>
+                 <p>Hello World!</p>
+                 {/*标签内的注释写在{}内*/}
+                 <h1 style={myStyle}>{i === 1 ? 'true' : 'false'}</h1>
+                 {arr}
+             </div>,
+         document.getElementById('example'));
+</script>
+
+<!--测试将react jsx文件独立出去-->
+<!--<script type="text/babel" src="index.js"></script>-->
+
+</body>
+</html>

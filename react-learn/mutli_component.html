@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>复合组件</title>
+</head>
+<body>
+<div id="example"></div>
+<script src="libs/react.min.js"></script>
+<script src="libs/react-dom.min.js"></script>
+<script src="libs/babel.min.js"></script>
+<script type="text/babel">
+    var WebSite = React.createClass(
+        {
+            render: function () {
+                return <div>
+                    <Name name={this.props.name}/>
+                    <Desc desc={this.props.desc}/>
+                </div>
+            }
+        }
+    );
+    var Name = React.createClass(
+        {
+            render: function () {
+                return <h2>{this.props.name} </h2>
+            }
+        }
+    );
+    var Desc = React.createClass(
+        {
+            render: function () {
+                return <p>{this.props.desc} </p>
+            }
+        }
+    );
+    ReactDOM.render(<WebSite name="这是复合组件的名字" desc="这是复合组件的详细介绍"/>, document.getElementById('example'));
+</script>
+</body>
+</html>

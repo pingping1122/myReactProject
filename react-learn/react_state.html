@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React State(状态)</title>
+</head>
+<body>
+<div id="example"></div>
+<script src="libs/react.min.js"></script>
+<script src="libs/react-dom.min.js"></script>
+<script src="libs/babel.min.js"></script>
+
+<script type="text/babel">
+    var StateButton = React.createClass({
+        getInitialState: function () {
+            return {liked: false};
+        },
+        handleClick: function (event) {
+            this.setState({liked: !this.state.liked});
+        },
+        render: function () {
+            var text = this.state.liked ? '状态1' : '状态2';
+            return (<p onClick={this.handleClick}>点击切换状态--{text}</p>)
+        }
+    });
+    ReactDOM.render(<StateButton/>, document.getElementById('example'));
+</script>
+</body>
+</html>
